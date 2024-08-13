@@ -40,6 +40,7 @@
     "@expo/metro-config": "~0.18.4",
     "@tamagui/babel-plugin": "^1.108.3",
     "metro-minify-terser": "^0.80.9",
+    "react-native-dotenv": "^3.4.11",
     "typescript": "^5.4.5"
   },
   "resolutions": {

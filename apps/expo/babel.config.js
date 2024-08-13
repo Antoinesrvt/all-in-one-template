@@ -4,6 +4,7 @@ module.exports = function (api) {
     presets: [['babel-preset-expo', { jsxRuntime: 'automatic' }]],
     plugins: [
       [
+        'module:react-native-dotenv',
         require.resolve('babel-plugin-module-resolver'),
         {
           root: ['../..'],
