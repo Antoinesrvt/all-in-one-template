@@ -1,0 +1,40 @@
+{
+  "name": "all-in-one",
+  "private": true,
+  "workspaces": [
+    "./apps/*",
+    "./packages/*"
+  ],
+  "scripts": {
+    "native": "cd apps/expo && npm run start",
+    "watch": "npm run --workspaces --if-present watch",
+    "vercel:install": "npm install",
+    "web": "npm run build && cd apps/next && npm run next",
+    "web:extract": "DISABLE_EXTRACTION=false npm run dev --workspace=next-app",
+    "web:prod": "npm run build --workspace=next-app",
+    "web:prod:serve": "npm run serve --workspace=next-app",
+    "fix": "manypkg fix",
+    "postinstall": "npm run check-deps && npm run build",
+    "build": "npm run build --workspaces --if-present --exclude next-app",
+    "upgrade:tamagui": "npm update '*tamagui*' '@tamagui/*' react-native-web-lite",
+    "upgrade:tamagui:canary": "npm update '*tamagui*@canary' '@tamagui/*@canary' react-native-web-lite@canary",
+    "check-deps": "check-dependency-version-consistency ."
+  },
+  "resolutions": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-refresh": "^0.14.0",
+    "react-native-svg": "15.3.0",
+    "react-native-web": "~0.19.12"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.24.6",
+    "@manypkg/cli": "^0.21.4",
+    "check-dependency-version-consistency": "^4.1.0",
+    "eslint": "^9.3.0",
+    "node-gyp": "^10.1.0",
+    "prettier": "^3.2.5",
+    "turbo": "^1.13.3",
+    "typescript": "^5.4.5"
+  }
+}

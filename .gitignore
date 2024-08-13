@@ -1,0 +1,47 @@
+dist
+
+**/node_modules
+.npm/*
+!.npm/patches
+!.npm/plugins
+!.npm/releases
+!.npm/sdks
+!.npm/versions
+
+# expo
+**/.expo/*
+
+# next.js
+**/.next/*
+/out/
+
+# tamagui
+**/.tamagui/*
+
+# production
+/build
+
+# debug
+npm-debug.log*
+npm-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+
+# os
+.DS_Store
+THUMBS_DB
+thumbs.db
+
+# turbo build log
+**/.turbo/*
