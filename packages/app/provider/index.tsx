@@ -7,6 +7,8 @@ import { ClerkProvider, ClerkProviderNext } from './clerk-provider'
 import { useAuth as useClerkAuth } from '@clerk/clerk-react'
 import { AuthScreen } from '../features/auth/screen'
 import { Navbar } from '@my/ui/src/navBar'
+import { I18nextProvider } from 'react-i18next'
+import i18n from '../i18n'
 
 const convexUrl = process.env.NEXT_PUBLIC_CONVEX_URL || process.env.EXPO_PUBLIC_CONVEX_URL
 
@@ -34,20 +36,22 @@ export function Provider({ children, ...rest }: Omit<TamaguiProviderProps, 'conf
   return (
     <ClerkProviderComponent>
       <ConvexProviderWithClerk client={convex} useAuth={useClerkAuth}>
-        <TamaguiProvider
-          config={config}
-          defaultTheme={colorScheme === 'dark' ? 'dark' : 'light'}
-          {...rest}
-        >
-          <ToastProvider swipeDirection="horizontal" duration={6000} native={[]}>
-            <AuthWrapper>
-              <Navbar />
-              {children}
-            </AuthWrapper>
-            <CustomToast />
-            <ToastViewport />
-          </ToastProvider>
-        </TamaguiProvider>
+        <I18nextProvider i18n={i18n}>
+          <TamaguiProvider
+            config={config}
+            defaultTheme={colorScheme === 'dark' ? 'dark' : 'light'}
+            {...rest}
+          >
+            <ToastProvider swipeDirection="horizontal" duration={6000} native={[]}>
+              <AuthWrapper>
+                <Navbar />
+                {children}
+              </AuthWrapper>
+              <CustomToast />
+              <ToastViewport />
+            </ToastProvider>
+          </TamaguiProvider>
+        </I18nextProvider>
       </ConvexProviderWithClerk>
     </ClerkProviderComponent>
   )

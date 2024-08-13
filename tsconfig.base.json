@@ -6,6 +6,7 @@
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "downlevelIteration": true,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "preserveSymlinks": true,
     "incremental": true,
