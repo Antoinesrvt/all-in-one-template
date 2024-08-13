@@ -6,6 +6,7 @@ import { ConvexProviderWithClerk } from 'convex/react-clerk'
 import { ClerkProvider, ClerkProviderNext } from './clerk-provider'
 import { useAuth as useClerkAuth } from '@clerk/clerk-react'
 import { AuthScreen } from '../features/auth/screen'
+import { Navbar } from '@my/ui/src/navBar'
 
 const convexUrl = process.env.NEXT_PUBLIC_CONVEX_URL || process.env.EXPO_PUBLIC_CONVEX_URL
 
@@ -39,7 +40,10 @@ export function Provider({ children, ...rest }: Omit<TamaguiProviderProps, 'conf
           {...rest}
         >
           <ToastProvider swipeDirection="horizontal" duration={6000} native={[]}>
-            <AuthWrapper>{children}</AuthWrapper>
+            <AuthWrapper>
+              <Navbar />
+              {children}
+            </AuthWrapper>
             <CustomToast />
             <ToastViewport />
           </ToastProvider>
